@@ -1,0 +1,43 @@
+###
+
+GET http://localhost:3000/posts
+
+###
+
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+    "title": "My First Post",
+    "content": "This is the content of my first post.",
+    "sender": "Chen"
+}
+
+###
+
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+    "title": "Another Post",
+    "content": "Testing the filter feature",
+    "sender": "Shiri"
+}
+
+###
+
+GET http://localhost:3000/posts?sender=Chen
+
+###
+
+GET http://localhost:3000/posts/60d21b4667d0d8992e610c85
+
+###
+
+PUT http://localhost:3000/posts/60d21b4667d0d8992e610c85
+Content-Type: application/json
+
+{
+    "title": "Updated Post Title",
+    "content": "This is the updated content of the post."
+}

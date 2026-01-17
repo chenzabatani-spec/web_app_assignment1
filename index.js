@@ -4,8 +4,12 @@ const dotenv = require('dotenv').config();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+const postRouter = require('./routes/post_routes');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use('/posts', postRouter);
 
 mongoose.connect(process.env.DATABASE_URL);
 

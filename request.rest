@@ -1,0 +1,48 @@
+### Get All Posts
+
+GET http://localhost:3000/posts
+
+### Create the first post
+
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+    "title": "My First Post",
+    "content": "This is the content of my first post.",
+    "sender": "Chen"
+}
+
+### Create the second post
+
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+    "title": "Another Post",
+    "content": "Testing the filter feature",
+    "sender": "Shiry"
+}
+
+### Get posts filtered by sender
+
+GET http://localhost:3000/posts?sender=Chen
+
+### Get posts filtered by sender #2
+
+GET http://localhost:3000/posts?sender=Shiry
+
+### Get posts filtered by id
+
+GET http://localhost:3000/posts/696bcb39b193b0061a5fe57d
+
+### Update post by id
+## IMPORTANT: Replace the ID below with existing ID from the database
+
+PUT http://localhost:3000/posts/696bcb39b193b0061a5fe57d
+Content-Type: application/json
+
+{
+    "title": "Updated Chen's Post Title",
+    "content": "This is the updated content of the post."
+}

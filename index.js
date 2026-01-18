@@ -3,6 +3,7 @@ const app = express();
 const dotenv = require('dotenv').config(); 
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const commentRouter = require('./routes/comment_routes');
 
 const postRouter = require('./routes/post_routes');
 
@@ -10,6 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/posts', postRouter);
+app.use('/comments', commentRouter);
 
 mongoose.connect(process.env.DATABASE_URL);
 

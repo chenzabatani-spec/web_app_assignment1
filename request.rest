@@ -46,3 +46,42 @@ Content-Type: application/json
     "title": "Updated Chen's Post Title",
     "content": "This is the updated content of the post."
 }
+
+
+### -------------------------------------------
+### Comments API Tests
+### -------------------------------------------
+
+### 1. Get all comments
+GET http://localhost:3000/comments
+
+### 2. Create a new comment
+# IMPORTANT: The 'postId' field must contain a valid ID of an existing post in your database!
+POST http://localhost:3000/comments
+Content-Type: application/json
+
+{
+    "message": "This is a great post!",
+    "sender": "Shiry",
+    "postId": "REPLACE_WITH_REAL_POST_ID"
+}
+
+### 3. Get comments by specific Post ID
+# This verifies that we can filter comments belonging to a specific post
+GET http://localhost:3000/comments?postId=REPLACE_WITH_REAL_POST_ID
+
+### 4. Update a comment
+# Replace 'REPLACE_WITH_COMMENT_ID' with the ID of the comment you created in step 2
+PUT http://localhost:3000/comments/REPLACE_WITH_COMMENT_ID
+Content-Type: application/json
+
+{
+    "message": "Updated message: This post is amazing!",
+    "sender": "Shiry"
+}
+
+### 5. Get a specific comment by ID
+GET http://localhost:3000/comments/REPLACE_WITH_COMMENT_ID
+
+### 6. Delete a comment
+DELETE http://localhost:3000/comments/REPLACE_WITH_COMMENT_ID

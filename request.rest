@@ -1,8 +1,8 @@
-### Get All Posts
+### -------------------------------------------
+### Posts API Tests
+### -------------------------------------------
 
-GET http://localhost:3000/posts
-
-### Create the first post
+### 1. Create the first post
 
 POST http://localhost:3000/posts
 Content-Type: application/json
@@ -13,33 +13,37 @@ Content-Type: application/json
     "sender": "Chen"
 }
 
-### Create the second post
+### 1.2 Create the second post
 
 POST http://localhost:3000/posts
 Content-Type: application/json
 
 {
-    "title": "Another Post",
+    "title": "Another Cool Post",
     "content": "Testing the filter feature",
     "sender": "Shiry"
 }
 
-### Get posts filtered by sender
+### 2. Get All Posts
+
+GET http://localhost:3000/posts
+
+### 3. Get posts filtered by id
+
+GET http://localhost:3000/posts/REPLACE_WITH_EXISTING_POST_ID
+
+### 4. Get posts filtered by sender
 
 GET http://localhost:3000/posts?sender=Chen
 
-### Get posts filtered by sender #2
+### 4.2 Get posts filtered by sender #2
 
 GET http://localhost:3000/posts?sender=Shiry
 
-### Get posts filtered by id
-
-GET http://localhost:3000/posts/696bcb39b193b0061a5fe57d
-
-### Update post by id
+### 5. Update post by id
 ## IMPORTANT: Replace the ID below with existing ID from the database
 
-PUT http://localhost:3000/posts/696bcb39b193b0061a5fe57d
+PUT http://localhost:3000/posts/REPLACE_WITH_EXISTING_POST_ID
 Content-Type: application/json
 
 {
@@ -52,10 +56,7 @@ Content-Type: application/json
 ### Comments API Tests
 ### -------------------------------------------
 
-### 1. Get all comments
-GET http://localhost:3000/comments
-
-### 2. Create a new comment
+### 1. Create a new comment
 # IMPORTANT: The 'postId' field must contain a valid ID of an existing post in your database!
 POST http://localhost:3000/comments
 Content-Type: application/json
@@ -63,12 +64,26 @@ Content-Type: application/json
 {
     "message": "This is a great post!",
     "sender": "Shiry",
-    "postId": "REPLACE_WITH_REAL_POST_ID"
+    "postId": "REPLACE_WITH_EXISTING_POST_ID"
 }
+
+### 1.2 Create a second new comment
+# IMPORTANT: The 'postId' field must contain a valid ID of an existing post in your database!
+POST http://localhost:3000/comments
+Content-Type: application/json
+
+{
+    "message": "I like your post!",
+    "sender": "Chen",
+    "postId": "REPLACE_WITH_EXISTING_POST_ID"
+}
+
+### 2. Get all comments
+GET http://localhost:3000/comments
 
 ### 3. Get comments by specific Post ID
 # This verifies that we can filter comments belonging to a specific post
-GET http://localhost:3000/comments?postId=REPLACE_WITH_REAL_POST_ID
+GET http://localhost:3000/comments?postId=REPLACE_WITH_EXISTING_POST_ID
 
 ### 4. Update a comment
 # Replace 'REPLACE_WITH_COMMENT_ID' with the ID of the comment you created in step 2
@@ -76,7 +91,7 @@ PUT http://localhost:3000/comments/REPLACE_WITH_COMMENT_ID
 Content-Type: application/json
 
 {
-    "message": "Updated message: This post is amazing!",
+    "message": "Updated message: This post is amazing!!!",
     "sender": "Shiry"
 }
 
